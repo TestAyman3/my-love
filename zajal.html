@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09070d">
+<meta name="description" content="Wahed l3ba sghira l Siham ❤️">
+<title>Siham ❤️ - Chi haja lik</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#08060b;
+    --bg2:#100a12;
+    --card:rgba(255,255,255,.055);
+    --card-hover:rgba(255,255,255,.09);
+    --border:rgba(255,255,255,.10);
+    --rose:#e889a8;
+    --rose-light:#f6b7c9;
+    --gold:#d9b878;
+    --white:#fff;
+    --text:#f7edf3;
+    --muted:#aaa0aa;
+    --shadow:0 25px 80px rgba(0,0,0,.5);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(232,137,168,.12),transparent 30%),
+        radial-gradient(circle at 85% 20%,rgba(217,184,120,.08),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(232,137,168,.06),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    font-family:"Cairo",sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    background-image:
+        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px);
+    background-size:75px 75px;
+    z-index:0;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:min(100% - 32px,950px);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:
+        radial-gradient(circle at center,rgba(232,137,168,.15),transparent 35%),
+        #07050a;
+    transition:.9s ease;
+}
+
+.intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    width:min(100%,500px);
+    text-align:center;
+    animation:introUp 1s ease both;
+}
+
+.intro-heart{
+    width:95px;
+    height:95px;
+    margin:0 auto 28px;
+    border:1px solid rgba(232,137,168,.35);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    box-shadow:
+        0 0 70px rgba(232,137,168,.16),
+        inset 0 0 35px rgba(232,137,168,.06);
+    animation:heartbeat 2s infinite;
+}
+
+.intro-small{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.intro-name{
+    font-family:"Amiri",serif;
+    font-size:clamp(50px,12vw,75px);
+    line-height:1;
+    background:linear-gradient(120deg,#fff,#f4a9c2,#fff,#d9b878);
+    background-size:250% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shine 6s linear infinite;
+    margin-bottom:15px;
+}
+
+.intro-text{
+    color:#c4bac3;
+    font-size:14px;
+    line-height:2;
+    margin-bottom:30px;
+}
+
+.start-btn{
+    border:1px solid rgba(232,137,168,.45);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(232,137,168,.18),
+            rgba(217,184,120,.08)
+        );
+    color:white;
+    border-radius:50px;
+    padding:14px 30px;
+    cursor:pointer;
+    font-size:14px;
+    transition:.3s;
+    box-shadow:0 10px 35px rgba(232,137,168,.08);
+}
+
+.start-btn:hover{
+    transform:translateY(-4px);
+    background:rgba(232,137,168,.22);
+    box-shadow:0 15px 40px rgba(232,137,168,.14);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 16px 60px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-content{
+    width:min(100%,800px);
+}
+
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--rose-light);
+    font-size:12px;
+    border:1px solid rgba(232,137,168,.18);
+    background:rgba(232,137,168,.05);
+    padding:7px 15px;
+    border-radius:50px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:"Amiri",serif;
+    font-size:clamp(55px,13vw,105px);
+    line-height:1.05;
+    margin-bottom:22px;
+    background:linear-gradient(
+        120deg,
+        #fff,
+        #f6b7c9,
+        #fff,
+        #d9b878
+    );
+    background-size:250% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shine 7s linear infinite;
+}
+
+.hero-sub{
+    color:var(--muted);
+    max-width:650px;
+    margin:auto;
+    font-size:15px;
+    line-height:2.2;
+}
+
+.scroll-down{
+    margin-top:55px;
+    color:#77717a;
+    font-size:11px;
+    animation:float 2s ease-in-out infinite;
+}
+
+.scroll-down span{
+    display:block;
+    font-size:20px;
+    margin-top:8px;
+}
+
+/* =========================
+   GAME SECTION
+========================= */
+
+.game-section{
+    padding:80px 0 110px;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-number{
+    color:var(--rose);
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.section-head h2{
+    font-family:"Amiri",serif;
+    font-size:clamp(36px,8vw,55px);
+    line-height:1.4;
+    margin-bottom:8px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* GAME BOX */
+
+.game-box{
+    position:relative;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(232,137,168,.10),
+            transparent 45%
+        ),
+        rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    border-radius:32px;
+    padding:45px 25px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.game-box::before{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:rgba(232,137,168,.05);
+    filter:blur(70px);
+    top:-150px;
+    left:50%;
+    transform:translateX(-50%);
+    pointer-events:none;
+}
+
+.game-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.game-title .heart{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.game-title h3{
+    font-family:"Amiri",serif;
+    font-size:clamp(27px,6vw,38px);
+    margin-bottom:5px;
+}
+
+.game-title p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* NUMBER GRID */
+
+.number-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+    max-width:650px;
+    margin:0 auto;
+}
+
+.number-btn{
+    aspect-ratio:1/1;
+    border-radius:22px;
+    border:1px solid rgba(232,137,168,.18);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+    color:white;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition:.35s cubic-bezier(.2,.8,.2,1);
+}
+
+.number-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(255,255,255,.12),
+            transparent 35%
+        );
+    opacity:0;
+    transition:.3s;
+}
+
+.number-btn:hover{
+    transform:translateY(-7px) scale(1.03);
+    border-color:rgba(232,137,168,.45);
+    background:var(--card-hover);
+    box-shadow:0 15px 40px rgba(232,137,168,.10);
+}
+
+.number-btn:hover::before{
+    opacity:1;
+}
+
+.number-btn .num{
+    position:relative;
+    z-index:2;
+    font-size:clamp(25px,5vw,38px);
+    font-weight:700;
+    color:var(--rose-light);
+}
+
+.number-btn .mini{
+    position:absolute;
+    bottom:8px;
+    left:0;
+    right:0;
+    color:#756d76;
+    font-size:8px;
+    letter-spacing:1px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message-wrap{
+    margin-top:30px;
+    display:none;
+    animation:messageIn .6s ease both;
+}
+
+.message-wrap.show{
+    display:block;
+}
+
+.message-card{
+    border:1px solid rgba(232,137,168,.22);
+    border-radius:28px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(232,137,168,.10),
+            rgba(255,255,255,.025)
+        );
+    overflow:hidden;
+    box-shadow:0 20px 70px rgba(0,0,0,.35);
+}
+
+.message-top{
+    padding:22px 25px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.message-number{
+    color:var(--gold);
+    font-size:12px;
+}
+
+.close-message{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.04);
+    color:#aaa;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.close-message:hover{
+    color:white;
+    background:rgba(255,255,255,.10);
+}
+
+.message-content{
+    padding:35px 30px 40px;
+    text-align:center;
+}
+
+.message-icon{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.message-content h3{
+    font-family:"Amiri",serif;
+    font-size:clamp(28px,6vw,40px);
+    margin-bottom:22px;
+    color:var(--rose-light);
+}
+
+.message-text{
+    max-width:700px;
+    margin:auto;
+    color:#e4d9e1;
+    font-family:"Amiri",serif;
+    font-size:clamp(19px,3vw,23px);
+    line-height:2.35;
+}
+
+/* Special long message */
+
+.message-card.special{
+    border-color:rgba(217,184,120,.25);
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(217,184,120,.10),
+            transparent 50%
+        ),
+        rgba(255,255,255,.035);
+}
+
+.message-card.special .message-content{
+    padding:40px 25px 50px;
+}
+
+.message-card.special .message-content h3{
+    color:var(--gold);
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.final-section{
+    padding:30px 0 100px;
+    text-align:center;
+}
+
+.final-box{
+    border-top:1px solid rgba(255,255,255,.06);
+    padding-top:50px;
+}
+
+.final-box .name{
+    font-family:"Amiri",serif;
+    color:var(--rose-light);
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.final-box p{
+    color:#756e76;
+    font-size:11px;
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.floating-heart{
+    position:fixed;
+    bottom:-40px;
+    pointer-events:none;
+    opacity:0;
+    z-index:1;
+    animation:rise linear forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes introUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    10%{transform:scale(1.07)}
+    20%{transform:scale(1)}
+    30%{transform:scale(1.09)}
+    40%{transform:scale(1)}
+}
+
+@keyframes shine{
+    0%{background-position:0% center}
+    100%{background-position:250% center}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(8px)}
+}
+
+@keyframes rise{
+    0%{
+        transform:translateY(0) scale(.8) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.45;
+    }
+
+    100%{
+        transform:translateY(-110vh) scale(1.3) rotate(20deg);
+        opacity:0;
+    }
+}
+
+@keyframes messageIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px){
+
+    .container{
+        width:min(100% - 24px,950px);
+    }
+
+    .hero{
+        padding:70px 12px 50px;
+    }
+
+    .hero h1{
+        font-size:clamp(52px,17vw,80px);
+    }
+
+    .hero-sub{
+        font-size:13px;
+    }
+
+    .game-section{
+        padding:60px 0 80px;
+    }
+
+    .game-box{
+        padding:32px 14px;
+        border-radius:26px;
+    }
+
+    .number-grid{
+        gap:9px;
+    }
+
+    .number-btn{
+        border-radius:17px;
+    }
+
+    .number-btn .num{
+        font-size:27px;
+    }
+
+    .number-btn .mini{
+        display:none;
+    }
+
+    .message-top{
+        padding:18px;
+    }
+
+    .message-content{
+        padding:28px 18px 35px;
+    }
+
+    .message-text{
+        font-size:19px;
+        line-height:2.2;
+    }
+
+    .message-card.special .message-content{
+        padding:32px 18px 40px;
+    }
+
+}
+
+@media(max-width:390px){
+
+    .number-grid{
+        gap:7px;
+    }
+
+    .number-btn{
+        border-radius:14px;
+    }
+
+    .number-btn .num{
+        font-size:24px;
+    }
+
+    .game-title h3{
+        font-size:28px;
+    }
+
+    .message-text{
+        font-size:18px;
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        scroll-behavior:auto!important;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<div class="intro" id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-heart">
+            ❤️
+        </div>
+
+        <div class="intro-small">
+            Wahed l7aja sghira... walakin mn 9elbi
+        </div>
+
+        <div class="intro-name">
+            Siham
+        </div>
+
+        <p class="intro-text">
+            Ma chrit lik la cadeau la walo...<br>
+            walakin swwbt lik chi haja li ma ttsra b ta9der ❤️
+        </p>
+
+        <button class="start-btn" id="startBtn">
+            Bda l3ba ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            ❤️ Chi l3ba sghira l Siham
+        </div>
+
+        <h1>
+            Siham
+        </h1>
+
+        <p class="hero-sub">
+            Lyom ma bghitch n3tik ghir kalmat "3id milad said"...
+            bghit nkhlli lik 10 dyal l2abweb,
+            kol bab fih chi haja mn 9elbi lik.
+        </p>
+
+        <div class="scroll-down">
+            Hbti chwia...
+            <span>↓</span>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     GAME
+========================= -->
+
+<section class="game-section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="section-number">
+                01 · L3BA DYALNA
+            </div>
+
+            <h2>
+                Khayri ra9m ❤️
+            </h2>
+
+            <p>
+                Ma tkhayrich bzaf... khayri ghir ra9m wa7ed
+            </p>
+
+        </div>
+
+
+        <div class="game-box">
+
+            <div class="game-title">
+
+                <div class="heart">
+                    💌
+                </div>
+
+                <h3>
+                    Ikhtari ra9m mn 1 l 10
+                </h3>
+
+                <p>
+                    Kol ra9m kaykhbi lik chi risala
+                </p>
+
+            </div>
+
+
+            <!-- NUMBERS -->
+
+            <div class="number-grid">
+
+                <button class="number-btn" data-number="1">
+                    <span class="num">1</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="2">
+                    <span class="num">2</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="3">
+                    <span class="num">3</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="4">
+                    <span class="num">4</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="5">
+                    <span class="num">5</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="6">
+                    <span class="num">6</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="7">
+                    <span class="num">7</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="8">
+                    <span class="num">8</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="9">
+                    <span class="num">9</span>
+                    <span class="mini">SECRET</span>
+                </button>
+
+                <button class="number-btn" data-number="10">
+                    <span class="num">10</span>
+                    <span class="mini">FINAL</span>
+                </button>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div class="message-wrap" id="messageWrap">
+
+                <div class="message-card" id="messageCard">
+
+                    <div class="message-top">
+
+                        <div class="message-number" id="messageNumber">
+                            Risala #1
+                        </div>
+
+                        <button class="close-message" id="closeMessage">
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div class="message-content">
+
+                        <div class="message-icon" id="messageIcon">
+                            ❤️
+                        </div>
+
+                        <h3 id="messageTitle">
+                            Wahed l7aja...
+                        </h3>
+
+                        <div class="message-text" id="messageText">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final-section">
+
+    <div class="container">
+
+        <div class="final-box">
+
+            <div class="name">
+                Siham ❤️
+            </div>
+
+            <p>
+                Ma hia ghir l3ba... kol ra9m fih chi 7aja mn 9elbi.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   INTRO
+========================= */
+
+const intro = document.getElementById("intro");
+const startBtn = document.getElementById("startBtn");
+
+startBtn.addEventListener("click", () => {
+
+    intro.classList.add("hide");
+
+    startHearts();
+
+});
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+const messages = {
+
+    1: {
+        icon: "🥺",
+        title: "Awal marra twa7chtk",
+        text: `
+            Kat3rfi Siham... kayn wa9t ma kaykon la chi sabab la chi wa9i3a,
+            ghir kanl9a rassi twa7chtk.
+            <br><br>
+            Kanbghi nhder m3ak, nsme3 sotk, n3rf kifach daz nhark...
+            w ila ma l9it ma ngol, kanb9a ghir kanfker fik.
+            <br><br>
+            7it nti ma wlitich ghir wa7da kanhder m3aha...
+            wlitِي wa7da ila b3dat 3liya, kayn chi haja katna9s f nhari.
+            <br><br>
+            Ya Siham, l7ob ma kaybanch ghir f "kanbghik"...
+            kayban f dak "twa7chtk" li katji bla ma n3ayto 3liha. ❤️
+        `
+    },
+
+    2: {
+        icon: "❤️",
+        title: "3lach kanbghik?",
+        text: `
+            Kanbghik 7it nti nti...
+            bla mask, bla taswir, bla tkelf.
+            <br><br>
+            Kanbghik f d7ektk,
+            f hadrtk,
+            f tari9tk,
+            7ta f dakchi li ma kat3rfich belli kay3jbni fik.
+            <br><br>
+            W ila chi wa7ed swlni:
+            "Chno li khllak t3ll9 biha?"
+            <br><br>
+            Ma ghadi n9drch n3tiih jawab wa7ed...
+            7it nti machi sabab wa7ed.
+            <br><br>
+            Nti مجموعة dyal sabab...
+            w ana kol nhar kanl9a sabab jdida 3lach n7ebk aktar. ❤️
+        `
+    },
+
+    3: {
+        icon: "✨",
+        title: "Chi dkra ma katnssach",
+        text: `
+            Mn ga3 dakchi li daz binatna,
+            kaynin chwia dyal l7wayj li ymkn l3alam ychofhom sghar...
+            walakin 3ndi ana كبار.
+            <br><br>
+            Kol hdra binatna,
+            kol d7ka,
+            kol "finak?",
+            kol "tsb7 3la khir",
+            w kol mara 7ssit belli nti qriba lia 7ta ila knti b3ida.
+            <br><br>
+            Hadchi kaml wla dkryat.
+            <br><br>
+            W ila l3omr 3tani n3awd chi nhar mn had l2ayam,
+            ma ghadi nbdl walo...
+            ghadi nkhtar nafs l9issa,
+            nafs lbdya,
+            w nafs Siham. ❤️
+        `
+    },
+
+    4: {
+        icon: "🌙",
+        title: "Ila knti 7zina...",
+        text: `
+            Ila nhar mn l2ayam l9itk 7zina,
+            ma bghitch منك t9oli lia "ana labas".
+            <br><br>
+            Goli lia ghir:
+            "Ana ma labasach."
+            <br><br>
+            W ana nكون dak wa7ed li yb9a m3ak,
+            7ta ila ma l9ach lklam li y9dr yssla7 kolchi.
+            <br><br>
+            7it machi darori nصلح كل حاجة...
+            parfois ghir khas chi wa7ed yb9a.
+            <br><br>
+            W ana ila knti 7zina,
+            bghitk t3rfi belli kayn wa7ed f Marrakech
+            kayfker fik w kaytmena lik lkhir.
+            <br><br>
+            Dima... dima. ❤️
+        `
+    },
+
+    5: {
+        icon: "🌹",
+        title: "Chi 7aja bghit ndirha m3ak",
+        text: `
+            Bghit nhar yji,
+            ma ykonch binatna écran,
+            ma ykonch téléphone,
+            ma ykonch "tsb7 3la khir" mn b3id.
+            <br><br>
+            Bghit nكون 7dak,
+            نمشيو بلا programme,
+            nضحكو 3la ay 7aja sghira,
+            w nوقفو chi blassa ghir 7it 3jbatna.
+            <br><br>
+            Bghit nchof d7ektk 9odami,
+            machi f photo.
+            <br><br>
+            Bghit dak nhar li ghadi n9olo fih:
+            "Akhiran... ma b9inach b3adin."
+            <br><br>
+            W ila t7e99 had nhar,
+            ghadi ykon wa7ed mn ajmal l2ayam 3ndi. ❤️
+        `
+    },
+
+    6: {
+        icon: "💗",
+        title: "Risala romantique",
+        text: `
+            Siham...
+            ila kan l9elb kayktb,
+            rah smiytek hiya awal kelma ghadi yktbha.
+            <br><br>
+            Ila kan l7ob 3ndo dar,
+            rah bghit daro ykon fiha nti.
+            <br><br>
+            Ila kan l3omr kayt3ad b l7wayj zwina,
+            rah ana 7sabt nhari mlli dkhlti nti fih.
+            <br><br>
+            W ila kan 3ndi chi 7لم wa7ed,
+            ma howach nعيش بلا مشاكل...
+            walakin nعيش و f 7yati wa7da kanbghiha,
+            kat3rf belli 3ndha wa7ed kaychofha أجمل حاجة وقعات ليه.
+            <br><br>
+            W hadik nti. ❤️
+        `
+    },
+
+    7: {
+        icon: "😂",
+        title: "Risala li khassek tdhki 3liha",
+        text: `
+            Siham...
+            3ndi wa7ed l2i3tiraf khatir بزاف.
+            <br><br>
+            Ana kanbghi nكون 3a9el,
+            wa9er,
+            normal...
+            <br><br>
+            Walakin mlli katji nti,
+            kaymchi l3a9el f congé. 😂
+            <br><br>
+            Kat9dri tkhllini nbdl رأيي 3 مرات
+            f 5 d9aye9.
+            <br><br>
+            W ila glti lia:
+            "Ma fihach..."
+            kanbda n9ol:
+            "Ah sah... ma fihach."
+            😂
+            <br><br>
+            Bref...
+            nti machi ghir habibti,
+            nti lbug li dkhl lsystem dyali
+            w ma l9it lih ta update. ❤️😂
+        `
+    },
+
+    8: {
+        icon: "🤍",
+        title: "I3tiraf",
+        text: `
+            Ghadi n3ترف lik b chi haja...
+            <br><br>
+            Ana ma kntch kan3rf belli wa7ed linsan
+            y9dr ywalli mohim l had الدرجة
+            f wa9t ma kaybanش طويل.
+            <br><br>
+            Walakin nti dkhltِي l7yati
+            w bditi katkhlli بلايص f nhari
+            ma kntch 3arf belli khasni n3mrohom.
+            <br><br>
+            W daba...
+            mlli kanfker f lmosta9bal,
+            kanl9a smiytek katji بوحدها f dak lfikra.
+            <br><br>
+            Hadi hiya l7aja li bghitk t3rfi:
+            nti wlitِي akter mn wa7da kanbghiha...
+            wlitِي wa7da kanchof rassi m3aha f بزاف dyal l2ayam li mazal majawch. ❤️
+        `
+    },
+
+    9: {
+        icon: "🌌",
+        title: "3la lmosta9bal",
+        text: `
+            Ma n3rfch chno ghadi yjib lmosta9bal,
+            w ma n9drch nw3dek belli kol nhar ghadi ykon sahal.
+            <br><br>
+            Walakin n9dr nw3dek b wa7ed l7aja:
+            ila b9ina kanختارو بعضياتنا,
+            ghadi نبقا نحاول.
+            <br><br>
+            Bghit lmosta9bal ykoun fih
+            d7ak,
+            safar,
+            ayamat zwina,
+            w 7ta ayamat s3iba nدوزوها بجوج.
+            <br><br>
+            Ma bghitch قصة مثالية...
+            bghit قصة حقيقية.
+            <br><br>
+            W ila l9der 3tana tari9,
+            bghit dak tari9 ykoun fih ana w nti
+            kanمشيو خطوة بخطوة. ❤️
+        `
+    },
+
+    10: {
+        icon: "👑",
+        title: "Lmfaja2a lkbiira...",
+        special: true,
+        text: `
+            Siham...
+            <br><br>
+
+            Ila wslti l ra9m 10,
+            rah daba ma b9ach l3ab.
+            <br><br>
+
+            Hadi hiya lmessage li knt baghi نخليها lik
+            بوحدها...
+            7it kayna chi hwayj ma khas-homch ytkhllto m3a ga3 lklam.
+            <br><br>
+
+            Awal haja bghit n9ol lik:
+            ana fخور بيك.
+            <br><br>
+
+            Fخور belli l9it wa7da b7alk,
+            w fخور belli dak nhar li t3arfna fih
+            ma dazch b7al chi nhar 3adi.
+            <br><br>
+
+            13 Mars 2025
+            ma b9ach 3ndi ghir date.
+            Wla wa7ed lbab fta7 f 7yati.
+            <br><br>
+
+            Mn dak nhar,
+            wlit kan3rf belli kayn wa7ed linsan
+            kan9dr nhder m3ah,
+            nضحك m3ah,
+            نتوحشو,
+            nختلف m3ah,
+            nتصالح m3ah,
+            w نبقى f lakhir kanقول:
+            "Had linsana kat3ni lia بزاف."
+            <br><br>
+
+            Siham...
+            <br><br>
+
+            Bghitk t3rfi belli l7ob 3ndi ma howach ghir klam zwine.
+            Ma howach ghir "kanbghik"
+            wla "twa7chtk".
+            <br><br>
+
+            L7ob 3ndi howa dakchi li kayb9a
+            mlli kaymchi l7ماس dyal lbdya.
+            Howa dakchi li kaykhelli wa7ed yb9a kayختار nafs linsan
+            kol nhar mn jdid.
+            <br><br>
+
+            W ana...
+            kol mara kanfker fik,
+            kanl9a rassi kanختارك nti.
+            <br><br>
+
+            Ma 3ndich cadeau ghali n7etto f ydek,
+            walakin 3ndi wa7ed l7aja
+            li ma ttsrach b flouss:
+            had lklam kaml
+            خرج mn 9elbi lik.
+            <br><br>
+
+            Bghit nhar t9ray had lmessage
+            w tبتسمي.
+            Ma khassekch t3rfi ch7al 3yit bach nsawb had lpage,
+            ch7al fkert f kol kelma,
+            w ch7al bghit kol chi ykoun 3la 9d linsana
+            li knt kanbghi نفرحها.
+            <br><br>
+
+            7it nti تستاهلي.
+            <br><br>
+
+            Testahli chi wa7ed ygol lik
+            belli nti zwina,
+            machi ghir f chkel,
+            walakin f dak lathar li katkhlli f l9lob.
+            <br><br>
+
+            Testahli wa7ed yftakrek
+            mlli ychof chi haja zwina
+            w ygol:
+            "Hadi kant ghadi t3jb Siham."
+            <br><br>
+
+            Testahli wa7ed yفرح b d7ektk,
+            y7زن ila 7znti,
+            w yb9a kaytmena lik lkhir
+            7ta f dakchi li ma kay3rf 3lih ta wa7ed.
+            <br><br>
+
+            W ila chi nhar t3yiti,
+            rj3i l had lpage.
+            <br><br>
+
+            Khayri ra9m 10.
+            <br><br>
+
+            W tذكري belli kayn wa7ed f Marrakech
+            3ndo wa7da smitha Siham
+            w had smiya بوحدها
+            kat9dr tbddl lih nharo.
+            <br><br>
+
+            W ila chi nhar lmsafa bانت lik kbira,
+            tذكري belli Marrakech w Benslimane
+            ghir بلايص 3la lkhriطة...
+            <br><br>
+
+            Amma nti,
+            rah بلاصتك ma hiach 3la chi carte.
+            <br><br>
+
+            بلاصتك f 9elbi.
+            <br><br>
+
+            W hadik البلاصة...
+            ma bghit 7ta wa7ed yakhodha mnk. ❤️
+            <br><br>
+
+            Kol 3am w nti bikhir Siham.
+            <br>
+            Kol 3am w nti far7ana.
+            <br>
+            Kol 3am w nti 9riba l ahdafe dyalk.
+            <br><br>
+
+            W kol 3am...
+            nchallah نبقى كنشوفك
+            wa7da mn أجمل الحوايج
+            li 3tani l9der f had l7ayat.
+            <br><br>
+
+            Kanbghik...
+            w had lkalma,
+            9lila 3la dakchi li kayn f 9elbi lik. ❤️
+        `
+    }
+
+};
+
+
+/* =========================
+   GAME LOGIC
+========================= */
+
+const buttons =
+    document.querySelectorAll(".number-btn");
+
+const messageWrap =
+    document.getElementById("messageWrap");
+
+const messageCard =
+    document.getElementById("messageCard");
+
+const messageNumber =
+    document.getElementById("messageNumber");
+
+const messageIcon =
+    document.getElementById("messageIcon");
+
+const messageTitle =
+    document.getElementById("messageTitle");
+
+const messageText =
+    document.getElementById("messageText");
+
+const closeMessage =
+    document.getElementById("closeMessage");
+
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const number =
+            button.dataset.number;
+
+        const message =
+            messages[number];
+
+        if(!message) return;
+
+
+        messageNumber.textContent =
+            "Risala #" + number;
+
+        messageIcon.textContent =
+            message.icon;
+
+        messageTitle.textContent =
+            message.title;
+
+        messageText.innerHTML =
+            message.text;
+
+
+        if(message.special){
+
+            messageCard.classList.add("special");
+
+        }else{
+
+            messageCard.classList.remove("special");
+
+        }
+
+
+        messageWrap.classList.remove("show");
+
+        /* Restart animation */
+        void messageWrap.offsetWidth;
+
+        messageWrap.classList.add("show");
+
+
+        setTimeout(() => {
+
+            messageWrap.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        },100);
+
+    });
+
+});
+
+
+/* CLOSE */
+
+closeMessage.addEventListener("click", () => {
+
+    messageWrap.classList.remove("show");
+
+});
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+let heartsStarted = false;
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+    heart.textContent =
+        Math.random() > .5 ? "♡" : "♥";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (10 + Math.random() * 17) + "px";
+
+    heart.style.animationDuration =
+        (7 + Math.random() * 8) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    },16000);
+
+}
+
+
+function startHearts(){
+
+    if(heartsStarted) return;
+
+    heartsStarted = true;
+
+    setInterval(createHeart,1800);
+
+}
+
+
+/* A few hearts at beginning */
+
+setTimeout(() => {
+
+    createHeart();
+    createHeart();
+
+},1200);
+
+</script>
+
+</body>
+</html>
