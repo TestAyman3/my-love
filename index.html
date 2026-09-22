@@ -1,1614 +1,1457 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-    <meta name="theme-color" content="#0b0710">
-    <meta name="description" content="هدية صغيرة صنعتها لكِ بكل الحب بمناسبة يوم ميلادك.">
-
-    <title>إلى من اختارها قلبي ❤️</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #09070c;
-            --bg-soft: #100b14;
-            --card: rgba(255,255,255,0.055);
-            --border: rgba(255,255,255,0.10);
-            --white: #fff;
-            --text: #f5edf5;
-            --muted: #b7aeb9;
-            --rose: #e889a8;
-            --rose-light: #f6b7c9;
-            --gold: #d9b878;
-            --shadow: 0 20px 70px rgba(0,0,0,.45);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background:
-                radial-gradient(circle at 15% 10%, rgba(232,137,168,.10), transparent 28%),
-                radial-gradient(circle at 85% 25%, rgba(217,184,120,.07), transparent 25%),
-                var(--bg);
-
-            color: var(--text);
-            font-family: "Cairo", sans-serif;
-            overflow-x: hidden;
-            line-height: 1.9;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background-image:
-                radial-gradient(circle, rgba(255,255,255,.45) 1px, transparent 1px);
-            background-size: 80px 80px;
-            opacity: .035;
-            z-index: 0;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        /* =========================
-           INTRO SCREEN
-        ========================= */
-
-        .intro {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-            background:
-                radial-gradient(circle at center, rgba(232,137,168,.13), transparent 35%),
-                #08060b;
-
-            transition: opacity .8s ease, visibility .8s ease;
-        }
-
-        .intro.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .intro-content {
-            width: min(100%, 430px);
-            text-align: center;
-            animation: introUp 1.1s ease both;
-        }
-
-        .intro-heart {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 28px;
-            border: 1px solid rgba(232,137,168,.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            box-shadow:
-                0 0 60px rgba(232,137,168,.15),
-                inset 0 0 30px rgba(232,137,168,.05);
-            animation: heartbeat 2s infinite;
-        }
-
-        .intro-small {
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .intro h1 {
-            font-family: "Amiri", serif;
-            font-size: clamp(34px, 10vw, 58px);
-            line-height: 1.3;
-            font-weight: 700;
-            margin-bottom: 14px;
-        }
-
-        .intro p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .open-btn {
-            border: 1px solid rgba(232,137,168,.4);
-            background: linear-gradient(
-                135deg,
-                rgba(232,137,168,.16),
-                rgba(217,184,120,.08)
-            );
-            color: white;
-            border-radius: 50px;
-            padding: 13px 28px;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .open-btn:hover {
-            transform: translateY(-3px);
-            background: rgba(232,137,168,.20);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 100svh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 20px 50px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-inner {
-            width: min(100%, 850px);
-            text-align: center;
-        }
-
-        .date-label {
-            color: var(--rose-light);
-            font-size: 13px;
-            letter-spacing: .5px;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-family: "Amiri", serif;
-            font-size: clamp(46px, 13vw, 95px);
-            line-height: 1.15;
-            font-weight: 700;
-            margin-bottom: 20px;
-
-            background: linear-gradient(
-                120deg,
-                #fff,
-                #f5b3c7,
-                #fff,
-                #d9b878
-            );
-
-            background-size: 250% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-
-            animation: shine 6s linear infinite;
-        }
-
-        .hero-subtitle {
-            max-width: 650px;
-            margin: auto;
-            color: var(--muted);
-            font-size: clamp(14px, 3.5vw, 18px);
-            line-height: 2.1;
-        }
-
-        .scroll {
-            margin-top: 55px;
-            color: #8f8790;
-            font-size: 11px;
-            animation: float 2s infinite ease-in-out;
-        }
-
-        .scroll span {
-            display: block;
-            margin-top: 8px;
-            font-size: 18px;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        .section {
-            position: relative;
-            z-index: 1;
-            width: min(100%, 950px);
-            margin: auto;
-            padding: 85px 20px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-number {
-            color: var(--rose);
-            font-size: 11px;
-            letter-spacing: 3px;
-            margin-bottom: 8px;
-            direction: ltr;
-        }
-
-        .section-heading h2 {
-            font-family: "Amiri", serif;
-            font-size: clamp(32px, 8vw, 48px);
-            line-height: 1.4;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            font-size: 13px;
-            max-width: 550px;
-            margin: 8px auto 0;
-        }
-
-        /* =========================
-           STORY
-        ========================= */
-
-        .story-card {
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,.065),
-                rgba(255,255,255,.025)
-            );
-
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: clamp(25px, 6vw, 55px);
-            box-shadow: var(--shadow);
-        }
-
-        .story-card p {
-            color: #d8d0d8;
-            font-size: 15px;
-            line-height: 2.4;
-            text-align: center;
-        }
-
-        .story-card .highlight {
-            color: var(--rose-light);
-            font-weight: 700;
-        }
-
-        /* =========================
-           TIMELINE
-        ========================= */
-
-        .timeline {
-            position: relative;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 15px;
-            width: 1px;
-
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                rgba(232,137,168,.5),
-                transparent
-            );
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 0 55px 45px 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            right: 8px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--rose);
-            box-shadow: 0 0 20px rgba(232,137,168,.5);
-        }
-
-        .timeline-date {
-            color: var(--gold);
-            font-size: 12px;
-            margin-bottom: 7px;
-            direction: ltr;
-            text-align: right;
-        }
-
-        .timeline-item h3 {
-            font-size: 19px;
-            margin-bottom: 8px;
-        }
-
-        .timeline-item p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* =========================
-           COUNTER
-        ========================= */
-
-        .counter-box {
-            text-align: center;
-            background: rgba(255,255,255,.035);
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            padding: 30px 15px;
-        }
-
-        .counter-label {
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        .counter {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .counter-item {
-            padding: 15px 5px;
-            border-radius: 15px;
-            background: rgba(255,255,255,.035);
-        }
-
-        .counter-number {
-            display: block;
-            color: var(--rose-light);
-            font-size: clamp(23px, 7vw, 38px);
-            font-weight: 700;
-            direction: ltr;
-            unicode-bidi: plaintext;
-        }
-
-        .counter-text {
-            color: #8f8790;
-            font-size: 10px;
-        }
-
-        /* =========================
-           DISTANCE
-        ========================= */
-
-        .distance-card {
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(232,137,168,.08),
-                    transparent 50%
-                ),
-                rgba(255,255,255,.035);
-
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 40px 20px;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .cities {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-        }
-
-        .city {
-            flex: 1;
-        }
-
-        .city-name {
-            font-family: "Amiri", serif;
-            font-size: clamp(25px, 7vw, 38px);
-        }
-
-        .city-desc {
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        .distance-line {
-            flex: 1.4;
-            position: relative;
-            height: 50px;
-        }
-
-        .distance-line::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            border-top: 1px dashed rgba(232,137,168,.5);
-        }
-
-        .distance-heart {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: #0d0910;
-            padding: 8px;
-            font-size: 19px;
-        }
-
-        .distance-message {
-            color: #d7ced7;
-            margin-top: 25px;
-            font-size: 14px;
-        }
-
-        /* =========================
-           LOVE CARDS
-        ========================= */
-
-        .love-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .love-card {
-            min-height: 180px;
-            padding: 25px 18px;
-            border-radius: 22px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,.035);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-
-            transition: .35s;
-        }
-
-        .love-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(232,137,168,.35);
-        }
-
-        .love-icon {
-            font-size: 25px;
-            margin-bottom: 13px;
-        }
-
-        .love-card h3 {
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .love-card p {
-            color: var(--muted);
-            font-size: 12px;
-            line-height: 1.9;
-        }
-
-        /* =========================
-           SECRET MESSAGE
-        ========================= */
-
-        .secret-area {
-            text-align: center;
-        }
-
-        .secret-button {
-            border: 1px solid rgba(232,137,168,.3);
-            background: rgba(232,137,168,.07);
-            color: #fff;
-            border-radius: 50px;
-            padding: 13px 25px;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .secret-button:hover {
-            background: rgba(232,137,168,.15);
-        }
-
-        .secret-message {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-
-            transition:
-                max-height 1s ease,
-                opacity .7s ease,
-                margin .7s ease;
-        }
-
-        .secret-message.open {
-            max-height: 700px;
-            opacity: 1;
-            margin-top: 30px;
-        }
-
-        .secret-inner {
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(232,137,168,.09),
-                    rgba(255,255,255,.025)
-                );
-
-            border: 1px solid rgba(232,137,168,.2);
-            border-radius: 25px;
-            padding: 30px 22px;
-        }
-
-        .secret-inner p {
-            color: #e9dfe8;
-            font-family: "Amiri", serif;
-            font-size: 20px;
-            line-height: 2.3;
-        }
-
-        /* =========================
-           BIRTHDAY
-        ========================= */
-
-        .birthday {
-            text-align: center;
-            padding-bottom: 110px;
-        }
-
-        .birthday-card {
-            position: relative;
-            overflow: hidden;
-
-            border: 1px solid rgba(217,184,120,.25);
-
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(217,184,120,.12),
-                    transparent 45%
-                ),
-                rgba(255,255,255,.035);
-
-            border-radius: 30px;
-            padding: 50px 22px;
-            box-shadow: var(--shadow);
-        }
-
-        .birthday-date {
-            color: var(--gold);
-            font-size: 13px;
-            margin-bottom: 15px;
-            direction: ltr;
-            unicode-bidi: plaintext;
-        }
-
-        .birthday-card h2 {
-            font-family: "Amiri", serif;
-            font-size: clamp(38px, 10vw, 62px);
-            margin-bottom: 20px;
-        }
-
-        .birthday-card p {
-            max-width: 620px;
-            margin: auto;
-            color: #d4ccd4;
-            font-size: 14px;
-            line-height: 2.4;
-        }
-
-        .final-line {
-            margin-top: 35px;
-            color: var(--rose-light);
-            font-family: "Amiri", serif;
-            font-size: 22px;
-        }
-
-        footer {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 30px 20px 45px;
-            color: #68616a;
-            font-size: 10px;
-        }
-
-        /* =========================
-           FLOATING HEARTS
-        ========================= */
-
-        .heart {
-            position: fixed;
-            bottom: -30px;
-            pointer-events: none;
-            opacity: 0;
-            z-index: 0;
-
-            animation: rise linear forwards;
-        }
-
-        /* =========================
-           ANIMATIONS
-        ========================= */
-
-        @keyframes introUp {
-
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes heartbeat {
-
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            10% {
-                transform: scale(1.06);
-            }
-
-            20% {
-                transform: scale(1);
-            }
-
-            30% {
-                transform: scale(1.08);
-            }
-
-            40% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes shine {
-
-            0% {
-                background-position: 0% center;
-            }
-
-            100% {
-                background-position: 250% center;
-            }
-        }
-
-        @keyframes float {
-
-            0%,100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(8px);
-            }
-        }
-
-        @keyframes rise {
-
-            0% {
-                transform:
-                    translateY(0)
-                    scale(.8)
-                    rotate(0deg);
-
-                opacity: 0;
-            }
-
-            15% {
-                opacity: .45;
-            }
-
-            100% {
-                transform:
-                    translateY(-110vh)
-                    scale(1.3)
-                    rotate(20deg);
-
-                opacity: 0;
-            }
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .hero {
-                min-height: 95svh;
-                padding-top: 50px;
-            }
-
-            .section {
-                padding: 65px 16px;
-            }
-
-            .love-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .love-card {
-                min-height: auto;
-                padding: 22px;
-            }
-
-            .timeline::before {
-                right: 11px;
-            }
-
-            .timeline-dot {
-                right: 4px;
-            }
-
-            .timeline-item {
-                padding-right: 42px;
-            }
-
-            .cities {
-                gap: 8px;
-            }
-
-            .distance-line {
-                flex: 1;
-            }
-
-            .city-name {
-                font-size: 25px;
-            }
-
-            .city-desc {
-                font-size: 9px;
-            }
-
-            .counter {
-                gap: 5px;
-            }
-
-            .counter-item {
-                padding: 12px 3px;
-            }
-
-            .birthday-card {
-                padding: 40px 18px;
-            }
-        }
-
-        @media (max-width: 380px) {
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .cities {
-                gap: 4px;
-            }
-
-            .city-name {
-                font-size: 22px;
-            }
-
-            .distance-heart {
-                font-size: 15px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b0710">
+<meta name="description" content="هدية صغيرة صنعتها لكِ بكل الحب بمناسبة يوم ميلادك.">
+<title>إلى من اختارها قلبي ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --bg:#09070c;
+ --bg-soft:#100b14;
+ --card:rgba(255,255,255,0.055);
+ --border:rgba(255,255,255,0.10);
+ --white:#fff;
+ --text:#f5edf5;
+ --muted:#b7aeb9;
+ --rose:#e889a8;
+ --rose-light:#f6b7c9;
+ --gold:#d9b878;
+ --shadow:0 20px 70px rgba(0,0,0,.45);
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box
+}
+
+html{
+ scroll-behavior:smooth
+}
+
+body{
+ background:
+ radial-gradient(circle at 15% 10%,rgba(232,137,168,.10),transparent 28%),
+ radial-gradient(circle at 85% 25%,rgba(217,184,120,.07),transparent 25%),
+ var(--bg);
+ color:var(--text);
+ font-family:"Cairo",sans-serif;
+ overflow-x:hidden;
+ line-height:1.9;
+}
+
+body::before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ background-image:radial-gradient(circle,rgba(255,255,255,.45) 1px,transparent 1px);
+ background-size:80px 80px;
+ opacity:.035;
+ z-index:0
+}
+
+a{
+ color:inherit;
+ text-decoration:none
+}
+
+button{
+ font-family:inherit
+}
+
+/* INTRO */
+.intro{
+ position:fixed;
+ inset:0;
+ z-index:9999;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:25px;
+ background:
+ radial-gradient(circle at center,rgba(232,137,168,.13),transparent 35%),
+ #08060b;
+ transition:opacity .8s ease,visibility .8s ease
+}
+
+.intro.hidden{
+ opacity:0;
+ visibility:hidden;
+ pointer-events:none
+}
+
+.intro-content{
+ width:min(100%,430px);
+ text-align:center;
+ animation:introUp 1.1s ease both
+}
+
+.intro-heart{
+ width:90px;
+ height:90px;
+ margin:0 auto 28px;
+ border:1px solid rgba(232,137,168,.3);
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:38px;
+ box-shadow:
+ 0 0 60px rgba(232,137,168,.15),
+ inset 0 0 30px rgba(232,137,168,.05);
+ animation:heartbeat 2s infinite
+}
+
+.intro-small{
+ color:var(--muted);
+ font-size:13px;
+ margin-bottom:8px
+}
+
+.intro h1{
+ font-family:"Amiri",serif;
+ font-size:clamp(34px,10vw,58px);
+ line-height:1.3;
+ font-weight:700;
+ margin-bottom:14px
+}
+
+.intro p{
+ color:var(--muted);
+ font-size:14px;
+ margin-bottom:30px
+}
+
+.open-btn{
+ border:1px solid rgba(232,137,168,.4);
+ background:linear-gradient(
+ 135deg,
+ rgba(232,137,168,.16),
+ rgba(217,184,120,.08)
+ );
+ color:white;
+ border-radius:50px;
+ padding:13px 28px;
+ cursor:pointer;
+ transition:.3s
+}
+
+.open-btn:hover{
+ transform:translateY(-3px);
+ background:rgba(232,137,168,.20)
+}
+
+/* HERO */
+.hero{
+ min-height:100svh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:80px 20px 50px;
+ position:relative;
+ z-index:1
+}
+
+.hero-inner{
+ width:min(100%,850px);
+ text-align:center
+}
+
+.date-label{
+ color:var(--rose-light);
+ font-size:13px;
+ letter-spacing:.5px;
+ margin-bottom:18px
+}
+
+.hero h1{
+ font-family:"Amiri",serif;
+ font-size:clamp(46px,13vw,95px);
+ line-height:1.15;
+ font-weight:700;
+ margin-bottom:20px;
+ background:linear-gradient(
+ 120deg,
+ #fff,
+ #f5b3c7,
+ #fff,
+ #d9b878
+ );
+ background-size:250% auto;
+ -webkit-background-clip:text;
+ background-clip:text;
+ color:transparent;
+ animation:shine 6s linear infinite
+}
+
+.hero-subtitle{
+ max-width:650px;
+ margin:auto;
+ color:var(--muted);
+ font-size:clamp(14px,3.5vw,18px);
+ line-height:2.1
+}
+
+.scroll{
+ margin-top:55px;
+ color:#8f8790;
+ font-size:11px;
+ animation:float 2s infinite ease-in-out
+}
+
+.scroll span{
+ display:block;
+ margin-top:8px;
+ font-size:18px
+}
+
+/* SECTIONS */
+.section{
+ position:relative;
+ z-index:1;
+ width:min(100%,950px);
+ margin:auto;
+ padding:85px 20px
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:45px
+}
+
+.section-number{
+ color:var(--rose);
+ font-size:11px;
+ letter-spacing:3px;
+ margin-bottom:8px;
+ direction:ltr
+}
+
+.section-heading h2{
+ font-family:"Amiri",serif;
+ font-size:clamp(32px,8vw,48px);
+ line-height:1.4
+}
+
+.section-heading p{
+ color:var(--muted);
+ font-size:13px;
+ max-width:550px;
+ margin:8px auto 0
+}
+
+/* STORY */
+.story-card{
+ background:
+ linear-gradient(
+ 145deg,
+ rgba(255,255,255,.065),
+ rgba(255,255,255,.025)
+ );
+ border:1px solid var(--border);
+ border-radius:28px;
+ padding:clamp(25px,6vw,55px);
+ box-shadow:var(--shadow)
+}
+
+.story-card p{
+ color:#d8d0d8;
+ font-size:15px;
+ line-height:2.4;
+ text-align:center
+}
+
+.story-card .highlight{
+ color:var(--rose-light);
+ font-weight:700
+}
+
+/* TIMELINE */
+.timeline{
+ position:relative;
+ max-width:700px;
+ margin:auto
+}
+
+.timeline::before{
+ content:"";
+ position:absolute;
+ top:0;
+ bottom:0;
+ right:15px;
+ width:1px;
+ background:
+ linear-gradient(
+ to bottom,
+ transparent,
+ rgba(232,137,168,.5),
+ transparent
+ )
+}
+
+.timeline-item{
+ position:relative;
+ padding:0 55px 45px 0
+}
+
+.timeline-dot{
+ position:absolute;
+ right:8px;
+ top:5px;
+ width:15px;
+ height:15px;
+ border-radius:50%;
+ background:var(--rose);
+ box-shadow:0 0 20px rgba(232,137,168,.5)
+}
+
+.timeline-date{
+ color:var(--gold);
+ font-size:12px;
+ margin-bottom:7px;
+ direction:ltr;
+ text-align:right
+}
+
+.timeline-item h3{
+ font-size:19px;
+ margin-bottom:8px
+}
+
+.timeline-item p{
+ color:var(--muted);
+ font-size:14px
+}
+
+/* COUNTER */
+.counter-box{
+ text-align:center;
+ background:rgba(255,255,255,.035);
+ border:1px solid var(--border);
+ border-radius:25px;
+ padding:30px 15px
+}
+
+.counter-label{
+ color:var(--muted);
+ font-size:13px;
+ margin-bottom:20px
+}
+
+.counter{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:8px;
+ max-width:600px;
+ margin:auto
+}
+
+.counter-item{
+ padding:15px 5px;
+ border-radius:15px;
+ background:rgba(255,255,255,.035)
+}
+
+.counter-number{
+ display:block;
+ color:var(--rose-light);
+ font-size:clamp(23px,7vw,38px);
+ font-weight:700;
+ direction:ltr;
+ unicode-bidi:plaintext
+}
+
+.counter-text{
+ color:#8f8790;
+ font-size:10px
+}
+
+/* DISTANCE */
+.distance-card{
+ background:
+ radial-gradient(circle at center,rgba(232,137,168,.08),transparent 50%),
+ rgba(255,255,255,.035);
+ border:1px solid var(--border);
+ border-radius:30px;
+ padding:40px 20px;
+ text-align:center;
+ overflow:hidden
+}
+
+.cities{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:18px
+}
+
+.city{
+ flex:1
+}
+
+.city-name{
+ font-family:"Amiri",serif;
+ font-size:clamp(25px,7vw,38px)
+}
+
+.city-desc{
+ color:var(--muted);
+ font-size:11px
+}
+
+.distance-line{
+ flex:1.4;
+ position:relative;
+ height:50px
+}
+
+.distance-line::before{
+ content:"";
+ position:absolute;
+ top:50%;
+ left:0;
+ right:0;
+ border-top:1px dashed rgba(232,137,168,.5)
+}
+
+.distance-heart{
+ position:absolute;
+ left:50%;
+ top:50%;
+ transform:translate(-50%,-50%);
+ background:#0d0910;
+ padding:8px;
+ font-size:19px
+}
+
+.distance-message{
+ color:#d7ced7;
+ margin-top:25px;
+ font-size:14px
+}
+
+/* LOVE CARDS */
+.love-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px
+}
+
+.love-card{
+ min-height:180px;
+ padding:25px 18px;
+ border-radius:22px;
+ border:1px solid var(--border);
+ background:rgba(255,255,255,.035);
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ text-align:center;
+ transition:.35s
+}
+
+.love-card:hover{
+ transform:translateY(-5px);
+ border-color:rgba(232,137,168,.35)
+}
+
+.love-icon{
+ font-size:25px;
+ margin-bottom:13px
+}
+
+.love-card h3{
+ font-size:15px;
+ margin-bottom:8px
+}
+
+.love-card p{
+ color:var(--muted);
+ font-size:12px;
+ line-height:1.9
+}
+
+/* SECRET MESSAGE */
+.secret-area{
+ text-align:center
+}
+
+.secret-button{
+ border:1px solid rgba(232,137,168,.3);
+ background:rgba(232,137,168,.07);
+ color:#fff;
+ border-radius:50px;
+ padding:13px 25px;
+ cursor:pointer;
+ transition:.3s
+}
+
+.secret-button:hover{
+ background:rgba(232,137,168,.15)
+}
+
+/*
+ IMPORTANT:
+ الرسالة لا تظهر كاملة.
+ عند فتحها، تظهر داخل صندوق بارتفاع ثابت
+ مع Scrollbar داخلي.
+*/
+.secret-message{
+ max-height:0;
+ overflow:hidden;
+ opacity:0;
+ transition:
+ max-height 1s ease,
+ opacity .7s ease,
+ margin .7s ease
+}
+
+.secret-message.open{
+ max-height:430px;
+ opacity:1;
+ margin-top:30px
+}
+
+.secret-inner{
+ height:360px;
+ max-height:360px;
+ overflow-y:auto;
+ overflow-x:hidden;
+
+ background:
+ linear-gradient(
+ 145deg,
+ rgba(232,137,168,.09),
+ rgba(255,255,255,.025)
+ );
+
+ border:1px solid rgba(232,137,168,.2);
+ border-radius:25px;
+
+ padding:30px 22px;
+
+ /*
+  مهم حتى يبقى الـ scrollbar داخل الرسالة
+ */
+ scrollbar-width:thin;
+ scrollbar-color:rgba(232,137,168,.55) rgba(255,255,255,.04);
+
+ direction:rtl;
+ text-align:right;
+
+ /*
+  مساحة ثابتة للـ scrollbar
+ */
+ scrollbar-gutter:stable
+}
+
+/* Chrome / Edge / Safari */
+.secret-inner::-webkit-scrollbar{
+ width:7px
+}
+
+.secret-inner::-webkit-scrollbar-track{
+ background:rgba(255,255,255,.04);
+ border-radius:10px
+}
+
+.secret-inner::-webkit-scrollbar-thumb{
+ background:rgba(232,137,168,.55);
+ border-radius:10px
+}
+
+.secret-inner::-webkit-scrollbar-thumb:hover{
+ background:rgba(232,137,168,.8)
+}
+
+.secret-inner p{
+ color:#e9dfe8;
+ font-family:"Amiri",serif;
+ font-size:20px;
+ line-height:2.3;
+ padding-left:5px
+}
+
+/* BIRTHDAY */
+.birthday{
+ text-align:center;
+ padding-bottom:110px
+}
+
+.birthday-card{
+ position:relative;
+ overflow:hidden;
+ border:1px solid rgba(217,184,120,.25);
+ background:
+ radial-gradient(
+ circle at 50% 0%,
+ rgba(217,184,120,.12),
+ transparent 45%
+ ),
+ rgba(255,255,255,.035);
+ border-radius:30px;
+ padding:50px 22px;
+ box-shadow:var(--shadow)
+}
+
+.birthday-date{
+ color:var(--gold);
+ font-size:13px;
+ margin-bottom:15px;
+ direction:ltr;
+ unicode-bidi:plaintext
+}
+
+.birthday-card h2{
+ font-family:"Amiri",serif;
+ font-size:clamp(38px,10vw,62px);
+ margin-bottom:20px
+}
+
+.birthday-card p{
+ max-width:620px;
+ margin:auto;
+ color:#d4ccd4;
+ font-size:14px;
+ line-height:2.4
+}
+
+.final-line{
+ margin-top:35px;
+ color:var(--rose-light);
+ font-family:"Amiri",serif;
+ font-size:22px
+}
+
+/* FOOTER */
+footer{
+ position:relative;
+ z-index:1;
+ text-align:center;
+ padding:30px 20px 45px;
+ color:#68616a;
+ font-size:10px
+}
+
+/* FLOATING HEARTS */
+.heart{
+ position:fixed;
+ bottom:-30px;
+ pointer-events:none;
+ opacity:0;
+ z-index:0;
+ animation:rise linear forwards
+}
+
+/* ANIMATIONS */
+@keyframes introUp{
+ from{
+  opacity:0;
+  transform:translateY(30px)
+ }
+ to{
+  opacity:1;
+  transform:translateY(0)
+ }
+}
+
+@keyframes heartbeat{
+ 0%,100%{
+  transform:scale(1)
+ }
+ 10%{
+  transform:scale(1.06)
+ }
+ 20%{
+  transform:scale(1)
+ }
+ 30%{
+  transform:scale(1.08)
+ }
+ 40%{
+  transform:scale(1)
+ }
+}
+
+@keyframes shine{
+ 0%{
+  background-position:0% center
+ }
+ 100%{
+  background-position:250% center
+ }
+}
+
+@keyframes float{
+ 0%,100%{
+  transform:translateY(0)
+ }
+ 50%{
+  transform:translateY(8px)
+ }
+}
+
+@keyframes rise{
+ 0%{
+  transform:translateY(0) scale(.8) rotate(0deg);
+  opacity:0
+ }
+ 15%{
+  opacity:.45
+ }
+ 100%{
+  transform:translateY(-110vh) scale(1.3) rotate(20deg);
+  opacity:0
+ }
+}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+
+ .hero{
+  min-height:95svh;
+  padding-top:50px
+ }
+
+ .section{
+  padding:65px 16px
+ }
+
+ .love-grid{
+  grid-template-columns:1fr;
+  gap:12px
+ }
+
+ .love-card{
+  min-height:auto;
+  padding:22px
+ }
+
+ .timeline::before{
+  right:11px
+ }
+
+ .timeline-dot{
+  right:4px
+ }
+
+ .timeline-item{
+  padding-right:42px
+ }
+
+ .cities{
+  gap:8px
+ }
+
+ .distance-line{
+  flex:1
+ }
+
+ .city-name{
+  font-size:25px
+ }
+
+ .city-desc{
+  font-size:9px
+ }
+
+ .counter{
+  gap:5px
+ }
+
+ .counter-item{
+  padding:12px 3px
+ }
+
+ .birthday-card{
+  padding:40px 18px
+ }
+
+ /* الرسالة على الهاتف */
+ .secret-message.open{
+  max-height:calc(55vh + 40px)
+ }
+
+ .secret-inner{
+  height:55vh;
+  max-height:360px;
+  padding:25px 18px
+ }
+
+ .secret-inner p{
+  font-size:18px;
+  line-height:2.2
+ }
+}
+
+@media(max-width:380px){
+
+ .hero h1{
+  font-size:43px
+ }
+
+ .cities{
+  gap:4px
+ }
+
+ .city-name{
+  font-size:22px
+ }
+
+ .distance-heart{
+  font-size:15px
+ }
+
+ .secret-inner{
+  height:52vh
+ }
+
+ .secret-inner p{
+  font-size:17px
+ }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+ *,
+ *::before,
+ *::after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  scroll-behavior:auto!important
+ }
+}
+</style>
 </head>
 
 <body>
 
-
-<!-- =========================
-     INTRO
-========================= -->
-
+<!-- INTRO -->
 <div class="intro" id="intro">
 
-    <div class="intro-content">
+ <div class="intro-content">
 
-        <div class="intro-heart">
-            ❤️
-        </div>
+  <div class="intro-heart">❤️</div>
 
-        <div class="intro-small">
-            لدي شيء صغير أعددته لكِ...
-        </div>
+  <div class="intro-small">
+   لدي شيء صغير أعددته لكِ...
+  </div>
 
-        <h1>
-            إلى من اختارها قلبي
-        </h1>
+  <h1>
+   إلى من اختارها قلبي
+  </h1>
 
-        <p>
-            
-            إنها هدية صنعتها لكِ من قلبي.
-        </p>
+  <p>
+   إنها هدية صنعتها لكِ من قلبي.
+  </p>
 
-        <button class="open-btn" id="openGift">
-            افتحي هديتكِ ❤️
-        </button>
+  <button class="open-btn" id="openGift">
+   افتحي هديتكِ ❤️
+  </button>
 
-    </div>
+ </div>
 
 </div>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <header class="hero">
 
-    <div class="hero-inner">
+ <div class="hero-inner">
 
-        <div class="date-label">
-            2 أكتوبر 2006 · يوم ميلادكِ
-        </div>
+  <div class="date-label">
+   2 أكتوبر 2006 · يوم ميلادكِ
+  </div>
 
-        <h1>
-            إلى أجمل<br>
-            ما حدث لي
-        </h1>
+  <h1>
+   إلى أجمل<br>
+   ما حدث لي
+  </h1>
 
-        <p class="hero-subtitle">
-            في هذا اليوم لا أريد أن أقول لكِ فقط «عيد ميلاد سعيد»،
-            بل أريد أن أذكّركِ بأن وجودكِ في حياتي أصبح واحدًا
-            من أجمل الأشياء التي أفتخر بها.
-        </p>
+  <p class="hero-subtitle">
+   في هذا اليوم لا أريد أن أقول لكِ فقط «عيد ميلاد سعيد»، بل أريد أن أذكّركِ بأن وجودكِ في حياتي أصبح واحدًا من أجمل الأشياء التي أفتخر بها.
+  </p>
 
-        <div class="scroll">
-            انزلي قليلًا...
-            <span>↓</span>
-        </div>
+  <div class="scroll">
+   انزلي قليلًا...
+   <span>↓</span>
+  </div>
 
-    </div>
+ </div>
 
 </header>
 
 
-<!-- =========================
-     STORY
-========================= -->
-
+<!-- 01 -->
 <section class="section">
 
-    <div class="section-heading">
+ <div class="section-heading">
 
-        <div class="section-number">
-            01 · البداية
-        </div>
+  <div class="section-number">
+   01 · البداية
+  </div>
 
-        <h2>
-            كيف بدأت قصتنا؟
-        </h2>
+  <h2>
+   كيف بدأت قصتنا؟
+  </h2>
 
-        <p>
-            أحيانًا أجمل الأشياء تبدأ بطريقة لم نخطط لها.
-        </p>
+  <p>
+   أحيانًا أجمل الأشياء تبدأ بطريقة لم نخطط لها.
+  </p>
 
-    </div>
+ </div>
 
+ <div class="story-card">
 
-    <div class="story-card">
+  <p>
 
-        <p>
+   لم أكن أعرف أن فتح تطبيق
+   <span class="highlight">Muzz</span>
+   سيقودني إلى شخص سيصبح بهذه الأهمية في حياتي.
 
-            لم أكن أعرف أن فتح تطبيق
-            <span class="highlight">Muzz</span>
-            سيقودني إلى شخص سيصبح بهذه الأهمية في حياتي.
+   <br><br>
 
-            <br><br>
+   بين عدد لا يحصى من الأشخاص، شاءت الصدفة أن تجمعني بكِ، ومن هناك بدأت حكاية لم أكن أعرف إلى أين ستصل.
 
-            بين عدد لا يحصى من الأشخاص، شاءت الصدفة أن تجمعني بكِ،
-            ومن هناك بدأت حكاية لم أكن أعرف إلى أين ستصل.
+   <br><br>
 
-            <br><br>
+   ثم جاء يوم
+   <span class="highlight">13 مارس 2025</span>
+   ... يوم أصبحت فيه قصتنا شيئًا حقيقيًا، وبدأ فصل جديد من حياتي معكِ.
 
-            ثم جاء يوم
-            <span class="highlight">13 مارس 2025</span>...
+   <br><br>
 
-            يوم أصبحت فيه قصتنا شيئًا حقيقيًا،
-            وبدأ فصل جديد من حياتي معكِ.
+   ومنذ ذلك اليوم، لم تعودي مجرد فتاة تعرفت إليها عبر تطبيق، بل أصبحتِ الإنسانة التي أحب وجودها، وأفتخر بأنني معها، وأحمد الله على أن طرقنا قد التقت.
 
-            <br><br>
+  </p>
 
-            ومنذ ذلك اليوم، لم تعودي مجرد فتاة تعرفت إليها عبر تطبيق،
-            بل أصبحتِ الإنسانة التي أحب وجودها،
-            وأفتخر بأنني معها،
-            وأحمد الله على أن طرقنا قد التقت.
-
-        </p>
-
-    </div>
+ </div>
 
 </section>
 
 
-<!-- =========================
-     TIMELINE
-========================= -->
-
+<!-- 02 -->
 <section class="section">
 
-    <div class="section-heading">
+ <div class="section-heading">
 
-        <div class="section-number">
-            02 · حكايتنا
-        </div>
+  <div class="section-number">
+   02 · حكايتنا
+  </div>
 
-        <h2>
-            ثلاث لحظات لا أنساها
-        </h2>
+  <h2>
+   ثلاث لحظات لا أنساها
+  </h2>
 
-    </div>
+ </div>
 
+ <div class="timeline">
 
-    <div class="timeline">
+  <div class="timeline-item">
 
-        <div class="timeline-item">
+   <div class="timeline-dot"></div>
 
-            <div class="timeline-dot"></div>
+   <div class="timeline-date">
+    قبل البداية
+   </div>
 
-            <div class="timeline-date">
-                قبل البداية
-            </div>
+   <h3>
+    حين جمعنا Muzz
+   </h3>
 
-            <h3>
-                حين جمعنا Muzz
-            </h3>
+   <p>
+    لم أكن أعلم أن شخصًا قد يظهر فجأة في حياتي ويترك فيها كل هذا الأثر.
+   </p>
 
-            <p>
-                لم أكن أعلم أن شخصًا قد يظهر فجأة في حياتي
-                ويترك فيها كل هذا الأثر.
-            </p>
-
-        </div>
+  </div>
 
 
-        <div class="timeline-item">
+  <div class="timeline-item">
 
-            <div class="timeline-dot"></div>
+   <div class="timeline-dot"></div>
 
-            <div class="timeline-date">13
-2025 مارس
-            </div>
+   <div class="timeline-date">
+    13/03/2025
+   </div>
 
-            <h3>
-                اليوم الذي بدأت فيه قصتنا
-            </h3>
+   <h3>
+    اليوم الذي بدأت فيه قصتنا
+   </h3>
 
-            <p>
-                من هنا لم تعد المسألة مجرد تعارف،
-                بل بدأت قصة أعتز بها وأحملها معي كل يوم.
-            </p>
+   <p>
+    من هنا لم تعد المسألة مجرد تعارف، بل بدأت قصة أعتز بها وأحملها معي كل يوم.
+   </p>
 
-        </div>
+  </div>
 
 
-        <div class="timeline-item">
+  <div class="timeline-item">
 
-            <div class="timeline-dot"></div>
+   <div class="timeline-dot"></div>
 
-            <div class="timeline-date">
-                اليوم
-            </div>
+   <div class="timeline-date">
+    اليوم
+   </div>
 
-            <h3>
-                ما زلت أختاركِ
-            </h3>
+   <h3>
+    ما زلت أختاركِ
+   </h3>
 
-            <p>
-                رغم المسافة، ورغم الأيام التي لا نستطيع فيها
-                أن نكون بجانب بعضنا، ما زلت سعيدًا وفخورًا بأنكِ في حياتي.
-            </p>
+   <p>
+    رغم المسافة، ورغم الأيام التي لا نستطيع فيها أن نكون بجانب بعضنا، ما زلت سعيدًا وفخورًا بأنكِ في حياتي.
+   </p>
 
-        </div>
+  </div>
 
-    </div>
+ </div>
 
 </section>
 
 
-<!-- =========================
-     COUNTER
-========================= -->
-
+<!-- 03 -->
 <section class="section">
 
-    <div class="section-heading">
+ <div class="section-heading">
 
-        <div class="section-number">
-            03 · منذ البداية
-        </div>
+  <div class="section-number">
+   03 · منذ البداية
+  </div>
 
-        <h2>
-            منذ أن بدأت قصتنا...
-        </h2>
+  <h2>
+   كم من الوقت منذ أن بدأت قصتنا...
+  </h2>
 
-    </div>
+ </div>
 
+ <div class="counter-box">
 
-    <div class="counter-box">
+  <div class="counter-label">
+   الوقت الذي مرّ منذ 13 مارس 2025
+  </div>
 
-        <div class="counter-label">
-            الوقت الذي مرّ منذ 13 مارس 2025
-        </div>
+  <div class="counter">
 
+   <div class="counter-item">
+    <span class="counter-number" id="days">0</span>
+    <span class="counter-text">يوم</span>
+   </div>
 
-        <div class="counter">
+   <div class="counter-item">
+    <span class="counter-number" id="hours">0</span>
+    <span class="counter-text">ساعة</span>
+   </div>
 
-            <div class="counter-item">
+   <div class="counter-item">
+    <span class="counter-number" id="minutes">0</span>
+    <span class="counter-text">دقيقة</span>
+   </div>
 
-                <span class="counter-number" id="days">
-                    0
-                </span>
+   <div class="counter-item">
+    <span class="counter-number" id="seconds">0</span>
+    <span class="counter-text">ثانية</span>
+   </div>
 
-                <span class="counter-text">
-                    يوم
-                </span>
+  </div>
 
-            </div>
-
-
-            <div class="counter-item">
-
-                <span class="counter-number" id="hours">
-                    0
-                </span>
-
-                <span class="counter-text">
-                    ساعة
-                </span>
-
-            </div>
-
-
-            <div class="counter-item">
-
-                <span class="counter-number" id="minutes">
-                    0
-                </span>
-
-                <span class="counter-text">
-                    دقيقة
-                </span>
-
-            </div>
-
-
-            <div class="counter-item">
-
-                <span class="counter-number" id="seconds">
-                    0
-                </span>
-
-                <span class="counter-text">
-                    ثانية
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
+ </div>
 
 </section>
 
 
-<!-- =========================
-     DISTANCE
-========================= -->
-
+<!-- 04 -->
 <section class="section">
 
-    <div class="section-heading">
+ <div class="section-heading">
 
-        <div class="section-number">
-            04 · المسافة
-        </div>
+  <div class="section-number">
+   04 · المسافة
+  </div>
 
-        <h2>
-            بيننا مسافة... وليس بُعدًا
-        </h2>
+  <h2>
+   بيننا مسافة... وليس بُعدًا
+  </h2>
 
-        <p>
-            مراكش وبنسليمان قد تكونان بعيدتين على الخريطة،
-            لكن المسافة لا تقاس بالكيلومترات عندما يكون شخص ما قريبًا من القلب.
-        </p>
+  <p>
+   مراكش وبنسليمان قد تكونان بعيدتين على الخريطة، لكن المسافة لا تقاس بالكيلومترات عندما يكون شخص ما قريبًا من القلب.
+  </p>
 
+ </div>
+
+ <div class="distance-card">
+
+  <div class="cities">
+
+   <div class="city">
+
+    <div class="city-name">
+     مراكش
     </div>
 
-
-    <div class="distance-card">
-
-        <div class="cities">
-
-            <div class="city">
-
-                <div class="city-name">
-                    مراكش
-                </div>
-
-                <div class="city-desc">
-                    أنا
-                </div>
-
-            </div>
-
-
-            <div class="distance-line">
-
-                <div class="distance-heart">
-                    ❤️
-                </div>
-
-            </div>
-
-
-            <div class="city">
-
-                <div class="city-name">
-                    بنسليمان
-                </div>
-
-                <div class="city-desc">
-                    أنتِ
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <p class="distance-message">
-
-            قد لا أستطيع أن أطرق بابكِ كل مساء،
-            ولا أن أكون بجانبكِ في كل لحظة،
-            لكنني أستطيع أن أجعلكِ تعرفين أن هناك شخصًا
-            في مراكش يفكر بكِ ويفتخر بكِ ويحب وجودكِ في حياته.
-
-        </p>
-
+    <div class="city-desc">
+     أنا
     </div>
+
+   </div>
+
+
+   <div class="distance-line">
+
+    <div class="distance-heart">
+     ❤️
+    </div>
+
+   </div>
+
+
+   <div class="city">
+
+    <div class="city-name">
+     بنسليمان
+    </div>
+
+    <div class="city-desc">
+     أنتِ
+    </div>
+
+   </div>
+
+  </div>
+
+  <p class="distance-message">
+
+   قد لا أستطيع أن أطرق بابكِ كل مساء، ولا أن أكون بجانبكِ في كل لحظة، لكنني أستطيع أن أجعلكِ تعرفين أن هناك شخصًا في مراكش يفكر بكِ ويفتخر بكِ ويحب وجودكِ في حياته.
+
+  </p>
+
+ </div>
 
 </section>
 
 
-<!-- =========================
-     WHY I AM PROUD
-========================= -->
-
+<!-- 05 -->
 <section class="section">
 
-    <div class="section-heading">
+ <div class="section-heading">
 
-        <div class="section-number">
-            05 · أنتِ
-        </div>
+  <div class="section-number">
+   05 · أنتِ
+  </div>
 
-        <h2>
-            لماذا أنا فخور بكِ؟
-        </h2>
+  <h2>
+   لماذا أنا فخور بكِ؟
+  </h2>
 
-        <p>
-            لأنكِ بالنسبة إليّ أكثر من مجرد علاقة.
-        </p>
+  <p>
+   لأنكِ بالنسبة إليّ أكثر من مجرد علاقة.
+  </p>
 
-    </div>
-
-
-    <div class="love-grid">
-
-        <div class="love-card">
-
-            <div class="love-icon">
-                ❤️
-            </div>
-
-            <h3>
-                لأنكِ أنتِ
-            </h3>
-
-            <p>
-                لا أحتاج إلى سبب معقد لأفتخر بكِ.
-                يكفيني أنكِ الشخص الذي اختاره قلبي.
-            </p>
-
-        </div>
+ </div>
 
 
-        <div class="love-card">
+ <div class="love-grid">
 
-            <div class="love-icon">
-                ✨
-            </div>
+  <div class="love-card">
 
-            <h3>
-                لأن وجودكِ يهمني
-            </h3>
+   <div class="love-icon">
+    ❤️
+   </div>
 
-            <p>
-                وجودكِ في يومي، ولو بكلمة صغيرة،
-                أصبح شيئًا أقدّره أكثر مما تتخيلين.
-            </p>
+   <h3>
+    لأنكِ أنتِ
+   </h3>
 
-        </div>
+   <p>
+    لا أحتاج إلى سبب معقد لأفتخر بكِ. يكفيني أنكِ الشخص الذي اختاره قلبي.
+   </p>
+
+  </div>
 
 
-        <div class="love-card">
+  <div class="love-card">
 
-            <div class="love-icon">
-                🌙
-            </div>
+   <div class="love-icon">
+    ✨
+   </div>
 
-            <h3>
-                لأنني أفتخر بنا
-            </h3>
+   <h3>
+    لأن وجودكِ يهمني
+   </h3>
 
-            <p>
-                أفتخر بأنني استطعت أن أجد شخصًا
-                أريد أن أكمل معه هذه الحكاية.
-            </p>
+   <p>
+    وجودكِ في يومي، ولو بكلمة صغيرة، أصبح شيئًا أقدّره أكثر مما تتخيلين.
+   </p>
 
-        </div>
+  </div>
 
-    </div>
+
+  <div class="love-card">
+
+   <div class="love-icon">
+    🌙
+   </div>
+
+   <h3>
+    لأنني أفتخر بنا
+   </h3>
+
+   <p>
+    أفتخر بأنني استطعت أن أجد شخصًا أريد أن أكمل معه هذه الحكاية.
+   </p>
+
+  </div>
+
+ </div>
 
 </section>
 
 
-<!-- =========================
-     SECRET MESSAGE
-========================= -->
-
+<!-- 06 SECRET MESSAGE -->
 <section class="section">
 
-    <div class="section-heading">
+ <div class="section-heading">
 
-        <div class="section-number">
-            06 · رسالة خاصة
-        </div>
+  <div class="section-number">
+   06 · رسالة خاصة
+  </div>
 
-        <h2>
-            هناك شيء لم أقله بعد...
-        </h2>
+  <h2>
+   هناك شيء لم أقله بعد...
+  </h2>
 
-        <p>
-            اضغطي على الزر، واقرئيها إلى النهاية.
-        </p>
+  <p>
+   اضغطي على الزر، واقرئيها إلى النهاية.
+  </p>
 
-    </div>
-
-
-    <div class="secret-area">
-
-        <button class="secret-button" id="secretButton">
-            افتحي الرسالة ❤️
-        </button>
+ </div>
 
 
-        <div class="secret-message" id="secretMessage">
+ <div class="secret-area">
 
-            <div class="secret-inner">
+  <button class="secret-button" id="secretButton">
+   افتحي الرسالة ❤️
+  </button>
 
-                <p>
 
-                    يا أجمل من دخل حياتي...
+  <div class="secret-message" id="secretMessage">
 
-                    <br><br>
+   <div class="secret-inner">
 
-                    أريدكِ أن تعرفي شيئًا واحدًا:
-                    أنا فخور جدًا بأنني معكِ.
+    <p>
 
-                    <br><br>
+     يا أجمل من دخل حياتي...
 
-                    فخور بأن قصتنا بدأت من مكان بسيط،
-                    من تطبيق اسمه Muzz،
-                    ثم تحولت الأيام إلى مشاعر وذكريات
-                    وشخص أصبح يعني لي الكثير.
+     <br><br>
 
-                    <br><br>
+     أريدكِ أن تعرفي شيئًا واحدًا: أنا فخور جدًا بأنني معكِ.
 
-                    وربما تكون مراكش بعيدة عن بنسليمان،
-                    وربما لا نستطيع أن نلتقي متى أردنا،
-                    لكنني لا أريد أن تكون المسافة هي الشيء
-                    الذي نركز عليه.
+     <br><br>
 
-                    <br><br>
+     فخور بأن قصتنا بدأت من مكان بسيط، من تطبيق اسمه Muzz، ثم تحولت الأيام إلى مشاعر وذكريات وشخص أصبح يعني لي الكثير.
 
-                    أريد أن نتذكر دائمًا الشيء الأهم:
-                    أننا وجدنا بعضنا.
+     <br><br>
 
-                    <br><br>
+     وربما تكون مراكش بعيدة عن بنسليمان، وربما لا نستطيع أن نلتقي متى أردنا، لكنني لا أريد أن تكون المسافة هي الشيء الذي نركز عليه.
 
-                    وفي يوم ميلادكِ،
-                    أتمنى أن تبتسمي وأنتِ تقرئين هذه الكلمات،
-                    وأن تعرفي أن هناك شخصًا في مراكش
-                    سعيد جدًا لأنكِ موجودة في حياته.
+     <br><br>
 
-                    <br><br>
+     أريد أن نتذكر دائمًا الشيء الأهم: أننا وجدنا بعضنا.
 
-                    عيد ميلاد سعيد يا أجمل هدية
-                    جاءت إلى حياتي. ❤️
+     <br><br>
 
-                </p>
+     وفي يوم ميلادكِ، أتمنى أن تبتسمي وأنتِ تقرئين هذه الكلمات، وأن تعرفي أن هناك شخصًا في مراكش سعيد جدًا لأنكِ موجودة في حياته.
 
-            </div>
+     <br><br>
 
-        </div>
+     عيد ميلاد سعيد يا أجمل هدية جاءت إلى حياتي. ❤️
 
-    </div>
+    </p>
+
+   </div>
+
+  </div>
+
+ </div>
 
 </section>
 
 
-<!-- =========================
-     BIRTHDAY
-========================= -->
-
+<!-- BIRTHDAY -->
 <section class="section birthday">
 
-    <div class="birthday-card">
+ <div class="birthday-card">
 
-        <div class="birthday-date">
-            2 أكتوبر 2026
-        </div>
+  <div class="birthday-date">
+   2 أكتوبر 2026
+  </div>
 
-        <h2>
-            عيد ميلاد سعيد ❤️
-        </h2>
+  <h2>
+   عيد ميلاد سعيد ❤️
+  </h2>
 
-        <p>
+  <p>
 
-            في يوم ميلادكِ، لا أتمنى لكِ عامًا مليئًا بالأيام الجميلة فقط،
-            بل أتمنى أن يكون كل عام قادم أقرب إلى الأشياء التي تحلمين بها.
+   في يوم ميلادكِ، لا أتمنى لكِ عامًا مليئًا بالأيام الجميلة فقط، بل أتمنى أن يكون كل عام قادم أقرب إلى الأشياء التي تحلمين بها.
 
-            <br><br>
+   <br><br>
 
-            أتمنى أن تحققي ما تتمنين،
-            وأن تضحكي كثيرًا،
-            وأن تبقى ابتسامتكِ كما هي،
-            وأن تعرفي دائمًا أن هناك شخصًا
-            يراكِ شيئًا يستحق الفخر والحب والاهتمام.
+   أتمنى أن تحققي ما تتمنين، وأن تضحكي كثيرًا، وأن تبقى ابتسامتكِ كما هي، وأن تعرفي دائمًا أن هناك شخصًا يراكِ شيئًا يستحق الفخر والحب والاهتمام.
 
-        </p>
+  </p>
 
-        <div class="final-line">
+  <div class="final-line">
 
-            «المسافة بين مراكش وبنسليمان مؤقتة...
-            أما مكانكِ في قلبي فليس كذلك.» ❤️
+   «المسافة بين مراكش وبنسليمان مؤقتة... أما مكانكِ في قلبي فليس كذلك.» ❤️
 
-        </div>
+  </div>
 
-    </div>
+ </div>
 
 </section>
 
 
+<!-- FOOTER -->
 <footer>
 
-    صُنعت هذه الصفحة خصيصًا لكِ ❤️
-
-    <br>
-
-    13 مارس 2025 · بداية قصتنا
+ صُنعت هذه الصفحة خصيصًا لكِ ❤️
+ <br>
+ 13 مارس 2025 · بداية قصتنا
 
 </footer>
 
 
 <script>
 
-    /* =========================
-       INTRO
-    ========================= */
+/* INTRO */
+const intro=document.getElementById("intro");
+const openGift=document.getElementById("openGift");
 
-    const intro = document.getElementById("intro");
-    const openGift = document.getElementById("openGift");
+openGift.addEventListener("click",()=>{
 
-    openGift.addEventListener("click", () => {
+ intro.classList.add("hidden");
 
-        intro.classList.add("hidden");
+ startHearts();
 
-        startHearts();
-
-    });
+});
 
 
-    /* =========================
-       COUNTER
-    ========================= */
+/* RELATIONSHIP COUNTER */
+const relationshipStart=new Date("2025-03-13T00:00:00");
 
-    const relationshipStart =
-        new Date("2025-03-13T00:00:00");
+function updateCounter(){
 
-    function updateCounter() {
+ const now=new Date();
 
-        const now = new Date();
+ let difference=now-relationshipStart;
 
-        let difference =
-            now - relationshipStart;
+ if(difference<0){
+  difference=0;
+ }
 
-        if (difference < 0) {
-            difference = 0;
-        }
+ const totalSeconds=Math.floor(difference/1000);
 
-        const totalSeconds =
-            Math.floor(difference / 1000);
+ const days=Math.floor(totalSeconds/86400);
 
-        const days =
-            Math.floor(totalSeconds / 86400);
+ const hours=Math.floor(
+  (totalSeconds%86400)/3600
+ );
 
-        const hours =
-            Math.floor(
-                (totalSeconds % 86400) / 3600
-            );
+ const minutes=Math.floor(
+  (totalSeconds%3600)/60
+ );
 
-        const minutes =
-            Math.floor(
-                (totalSeconds % 3600) / 60
-            );
-
-        const seconds =
-            totalSeconds % 60;
+ const seconds=totalSeconds%60;
 
 
-        /*
-         * IMPORTANT:
-         * toLocaleString("ar-MA") was removed.
-         * Numbers now remain:
-         *
-         * 1234567890
-         *
-         * instead of:
-         *
-         * ١٢٣٤٥٦٧٨٩٠
-         */
+ document.getElementById("days").textContent=
+  days.toString();
 
-        document.getElementById("days").textContent =
-            days.toString();
+ document.getElementById("hours").textContent=
+  hours.toString().padStart(2,"0");
 
-        document.getElementById("hours").textContent =
-            hours.toString().padStart(2, "0");
+ document.getElementById("minutes").textContent=
+  minutes.toString().padStart(2,"0");
 
-        document.getElementById("minutes").textContent =
-            minutes.toString().padStart(2, "0");
+ document.getElementById("seconds").textContent=
+  seconds.toString().padStart(2,"0");
 
-        document.getElementById("seconds").textContent =
-            seconds.toString().padStart(2, "0");
+}
 
-    }
+updateCounter();
 
-    updateCounter();
-
-    setInterval(updateCounter, 1000);
+setInterval(updateCounter,1000);
 
 
-    /* =========================
-       SECRET MESSAGE
-    ========================= */
+/* SECRET MESSAGE */
+const secretButton=
+ document.getElementById("secretButton");
 
-    const secretButton =
-        document.getElementById("secretButton");
-
-    const secretMessage =
-        document.getElementById("secretMessage");
+const secretMessage=
+ document.getElementById("secretMessage");
 
 
-    secretButton.addEventListener("click", () => {
+secretButton.addEventListener("click",()=>{
 
-        secretMessage.classList.toggle("open");
-
-        if (
-            secretMessage.classList.contains("open")
-        ) {
-
-            secretButton.textContent =
-                "احتفظي بهذه الرسالة في قلبكِ ❤️";
-
-        } else {
-
-            secretButton.textContent =
-                "افتحي الرسالة ❤️";
-
-        }
-
-    });
+ secretMessage.classList.toggle("open");
 
 
-    /* =========================
-       FLOATING HEARTS
-    ========================= */
+ if(secretMessage.classList.contains("open")){
 
-    function createHeart() {
+  secretButton.textContent=
+   "احتفظي بهذه الرسالة في قلبكِ ❤️";
 
-        const heart =
-            document.createElement("div");
+ }else{
 
-        heart.className = "heart";
+  secretButton.textContent=
+   "افتحي الرسالة ❤️";
 
-        heart.textContent =
-            Math.random() > .5
-                ? "♡"
-                : "♥";
+ }
 
-        heart.style.right =
-            Math.random() * 100 + "vw";
-
-        heart.style.fontSize =
-            (10 + Math.random() * 16) + "px";
-
-        heart.style.animationDuration =
-            (7 + Math.random() * 8) + "s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 16000);
-
-    }
+});
 
 
-    function startHearts() {
+/* FLOATING HEARTS */
+function createHeart(){
 
-        setInterval(
-            createHeart,
-            1800
-        );
+ const heart=document.createElement("div");
 
-    }
+ heart.className="heart";
+
+ heart.textContent=
+  Math.random()>.5 ? "♡" : "♥";
+
+ heart.style.right=
+  Math.random()*100+"vw";
+
+ heart.style.fontSize=
+  (10+Math.random()*16)+"px";
+
+ heart.style.animationDuration=
+  (7+Math.random()*8)+"s";
+
+ document.body.appendChild(heart);
+
+ setTimeout(()=>{
+  heart.remove();
+ },16000);
+
+}
+
+
+function startHearts(){
+
+ setInterval(createHeart,1800);
+
+}
 
 </script>
 
 </body>
 </html>
-```
